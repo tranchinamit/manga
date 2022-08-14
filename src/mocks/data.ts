@@ -24,9 +24,9 @@ export interface IChapter {
 }
 
 export interface ICredit {
-   avatar: string, 
-   author: string,
-   role: string
+  avatar: string,
+  author: string,
+  role: string
 }
 
 export interface IAbout {

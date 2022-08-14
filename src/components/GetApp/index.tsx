@@ -16,6 +16,7 @@ export default function GetApp() {
           width={116}
           src="images/icon/qr.png"
           preview={false}
+          alt="qr"
         />
       </div>
     </div>

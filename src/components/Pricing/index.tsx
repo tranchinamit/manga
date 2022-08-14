@@ -32,6 +32,7 @@ export default function Pricing() {
                 width={12}
                 src="images/icon/coin.svg"
                 preview={false}
+                alt="coin"
               />{pricePerChap}{" "}/{" "}chapter)
             </Text>
           </div>
@@ -55,6 +56,7 @@ export default function Pricing() {
                   src="images/icon/coin.svg"
                   preview={false}
                   className="flex"
+                  alt="coin"
                 /><span className="ml2 o-85">35</span></Button>
             </div>
           </div>
@@ -73,6 +75,7 @@ export default function Pricing() {
                   src="images/icon/crown.svg"
                   preview={false}
                   className="flex"
+                  alt="coin"
                 />
               </Text>
               <br />
@@ -87,6 +90,7 @@ export default function Pricing() {
                     src="images/icon/coin.svg"
                     preview={false}
                     className="flex"
+                    alt="coin"
                   />
                   <span className="ml2 fs-xs line-through o-45">35</span>
                   <span className="ml2 o-85">18</span>

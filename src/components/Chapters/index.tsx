@@ -18,10 +18,10 @@ export default function Chapters() {
   const data = useData();
 
   useEffect(() => {
-    if (data?.user?.[id]?.lastReadId && data?.manga?.chapters?.length) {
-      const _chapterLastRead = data?.manga?.chapters?.find((chap: IChapter) => chap.id === user[id].lastReadId) ?? undefined;
+    if (data?.manga?.id && data?.user?.[data?.manga?.id]?.lastReadId && data?.manga?.chapters?.length) {
+      const _chapterLastRead = data?.manga?.chapters?.find((chap: IChapter) => chap.id === data.user[data?.manga?.id].lastReadId) ?? undefined;
       if (_chapterLastRead) {
-        const daysDiff = Math.round((data?.user[id].lastReadDate - Date.now()) / (1000 * 3600 * 24));
+        const daysDiff = Math.round((data?.user[data?.manga?.id].lastReadDate - Date.now()) / (1000 * 3600 * 24));
         const otherInfo = daysDiff > 1 ? `Last read ${daysDiff} days ago` : 'Last read today';
         setChapterLastRead({ chapter: { ..._chapterLastRead }, otherInfo })
       }
@@ -32,9 +32,9 @@ export default function Chapters() {
   }, [data])
 
   if (!data) return null;
-  
+
   const { manga: { id, chapters, publishDay, pricing }, user } = data;
-  
+
   return <Card className="block block__chapters">
     {!!chapterLastRead && (
       <>

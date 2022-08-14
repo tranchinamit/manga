@@ -13,6 +13,7 @@ export default function Item({ id, thumb, title, type, type2, views }: IRelated)
         width={110}
         src={thumb}
         preview={false}
+        alt={title}
       />
       <div className="ml3 flex items-center">
         <div>
@@ -22,6 +23,7 @@ export default function Item({ id, thumb, title, type, type2, views }: IRelated)
             width={14}
             src="images/icon/crown.svg"
             preview={false}
+            alt={title}
             className="flex "
           />} text={<Text className="color-purple">{type}</Text>}
           />

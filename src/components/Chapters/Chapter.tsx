@@ -30,6 +30,7 @@ export default function Chapters({ chapter, otherInfo, isActive, isFree, pricePe
               width={80}
               src={chapter?.thumb}
               preview={false}
+              alt="thumb"
             />
             <div className="flex items-center ml3">
               <div>
@@ -48,6 +49,7 @@ export default function Chapters({ chapter, otherInfo, isActive, isFree, pricePe
                     width={12}
                     src="images/icon/coin.svg"
                     preview={false}
+                    alt="thumb"
                   /><span className="ml1 o-45">{pricePerChap ?? 0}</span>
                 </Text>
               )}

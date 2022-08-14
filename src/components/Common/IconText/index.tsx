@@ -5,7 +5,7 @@ interface IProps {
   text: ReactNode;
 }
 
-export default function ({ icon, text }: IProps) {
+export default function IconText({ icon, text }: IProps) {
   return <div className="flex items-center pv1 mr3">
     <span className="mr1">
       {icon}

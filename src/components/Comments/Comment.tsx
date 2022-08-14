@@ -17,6 +17,7 @@ export default function Comment({ avatar, name, commentChap, datetime, comment, 
       src={avatar}
       preview={false}
       style={{ minWidth: 32 }}
+      alt="thumb"
     />
     <div className="ml3">
       <div className="flex items-center">

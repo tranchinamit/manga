@@ -8,6 +8,7 @@ export default function Comment() {
       src="images/avatar/comment-avatar.png"
       preview={false}
       style={{ minWidth: 32 }}
+      alt="ava"
     />
     <div className="ml3">
       <Input className="input--transparent" placeholder="Add your comment" />

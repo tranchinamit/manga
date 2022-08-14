@@ -10,7 +10,7 @@ import { useData } from "pages";
 
 const { Title, Text } = Typography;
 
-export default function () {
+export default function Intro() {
 
   const data = useData();
 
@@ -26,6 +26,7 @@ export default function () {
           width={180}
           src={thumb}
           preview={false}
+          alt="thumb"
         />
       </div>
       <div className="flex flex-col justify-between ph2 mh2 relative">
