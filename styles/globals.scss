@@ -1,0 +1,127 @@
+@import './variables.scss';
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-dark;
+  color: white;
+}
+
+// Layouts
+.main-content {
+  display: block;
+  margin: auto;
+  @media only screen and (max-width: 991px) {
+    width: calc(100% - 32px);
+  }
+  @media only screen and (min-width: 991px) {
+    width: 960px;
+  }
+  @media only screen and (min-width: 1199px) {
+    width: 1168px;
+  }
+  @media only screen and (min-width: 1599px) {
+    width: 1568px;
+  }
+}
+
+// block
+.block {
+  background-color: $bg-section;
+  border: none;
+  margin: 24px 0;
+  border-radius: 8px;
+  &__title {
+    line-height: 28px;
+    font-size: 20px;
+    color: white;
+  }
+  &__content {
+    padding: 8px 16px;
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+  &__chapters {
+    margin: 0;
+    padding-top: 24px;
+    >.ant-card-body {
+      padding: 0;
+    }
+  }
+  &__chapter {
+    border-radius: 0;
+    margin: 0;
+    .ant-card-body {
+      padding: 12px 24px;
+    }
+    &--active {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    &--last-read {
+      border-radius: 8px;
+      .ant-card-body {
+        padding: 12px;
+      }
+    }
+  }
+  &--no-margin {
+    margin: 0;
+    .ant-card-body {
+      padding: 12px;
+    }
+  }
+}
+
+//
+.input {
+  &--transparent {
+    background-color: transparent;
+    border-color: #434343;
+    border-radius: 8px;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3)
+    }
+  }
+}
+
+//
+.bg-content {
+  background-color: $bg-content;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.color-purple {
+  color: $color-purple !important;
+}
+
+.color-darkgray {
+  color: $color-darkgray !important;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

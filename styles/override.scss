@@ -1,0 +1,62 @@
+@import './variables.scss';
+.ant-btn {
+  background-color: transparent;
+  border-radius: 8px;
+  &.btn {
+    &__primary {
+      &--override {
+        background-color: $primary-btn-color;
+        border-color: $primary-btn-color;
+        color: black;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+        &:hover {
+          color: #000;
+          border-color: #d9ad00;
+          background: #d9ad00;
+        }
+      }
+    }
+    &__secondary {
+      &--override {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 8px 16px;
+        &:hover {
+          background: rgba(255, 255, 255, 0.50)
+        }
+      }
+    }
+    &__transparent {
+      &--override {
+        border-color: #434343;
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.016);
+        &:hover {
+          color: #000;
+          border-color: #d9ad00;
+          background: #d9ad00;
+        }
+      }
+    }
+  }
+}
+
+.ant-typography {
+  color: white;
+  font-weight: 500;
+}
+
+.ant-tag {
+  &.tag--override {
+    border-color: $border-tag;
+  }
+}
+
+// icons
+svg {
+  fill: rgba(255, 255, 255, 0.85);
+}
