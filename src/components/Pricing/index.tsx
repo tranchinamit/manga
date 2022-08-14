@@ -14,8 +14,8 @@ export default function Pricing() {
   return <Card className="block">
     <Text className="block__title">Pricing & Promotion</Text>
     <Card className="block block__content bg-content">
-      <Row gutter={16}>
-        <Col xs={12} className="bg-content pv2">
+      <Row gutter={32} className="relative">
+        <Col xs={12} className="bg-content pv2 border-right">
           <Text className="o-45">FREE</Text>
           <br />
           <Text className="o-85 fs-normal">{freeChaps}{freeChaps > 0 ? " chapters" : " chapter"}</Text>
@@ -39,9 +39,9 @@ export default function Pricing() {
         </Col>
       </Row>
 
-      <Divider className="border-black mv2" />
+      <Divider className="border-black mv2 absolute-divider" />
 
-      <Row>
+      <Row className="mt-24">
         <Col xs={24} className="pv2">
           <div className="flex justify-between items-center">
             <div>

@@ -151,3 +151,19 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.border-right {
+  &:after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 0;
+    border-right: solid 1px black;
+    height: calc(100% + 16px);
+  }
+}
+
+.absolute-divider {
+  position: absolute;
+  left: 0;
+}
