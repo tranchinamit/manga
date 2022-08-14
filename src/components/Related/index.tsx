@@ -1,22 +1,24 @@
-import { Image, Typography, Card,Divider } from "antd";
-import {
-  LikeOutlined,
-  MessageOutlined,
-} from '@ant-design/icons';
-import IconText from '@components/Common/IconText'
+import { Typography, Card } from "antd";
 import Item from './Item';
+import { useData } from "pages";
 
 const { Text } = Typography;
 
 export default function Related() {
-  return <Card className="block block--no-margin">
-    <div className="mt-12">
-    <Text className="block__title mv-12">Related Titles</Text>
+  const data = useData();
+
+  if (!data) return null;
+
+  const { manga: { related } } = data;
+
+  return <Card className="block block--no-spacing">
+    <div className="mt-24">
+      <Text className="block__title mh-24">Related Titles</Text>
     </div>
 
-    <Item />
-    <Item />
-    <Item />
+    {related?.map(item => (
+      <Item key={item.id} {...item} />
+    ))}
 
   </Card>
 }

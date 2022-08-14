@@ -1,32 +1,27 @@
 import { useState, useEffect } from 'react';
-import { IChapter, IIntro, IPricing, IUserManga } from "@mocks/data";
-import { Button, Col, Image, Row, Tag, Typography, Divider, Card } from "antd";
+import { IChapter, } from "@mocks/data";
+import { Button, Typography, Card } from "antd";
 import Chapter from './Chapter';
 import { BellOutlined, SortAscendingOutlined } from '@ant-design/icons';
+import { useData } from 'pages';
 
 const { Text } = Typography;
-
-interface IProps {
-  chapters: IChapter[] | [],
-  userManga?: IUserManga | undefined,
-  publishDay?: string,
-  pricing?: IPricing | undefined,
-}
 
 interface ILastChapter {
   chapter: IChapter,
   otherInfo: string,
 }
 
-export default function Chapters({ chapters, publishDay, userManga, pricing }: IProps) {
-
+export default function Chapters() {
   const [chapterLastRead, setChapterLastRead] = useState<ILastChapter | undefined>(undefined);
 
+  const data = useData();
+
   useEffect(() => {
-    if (userManga?.lastReadId && chapters?.length) {
-      const _chapterLastRead = chapters?.find((chap: IChapter) => chap.id === userManga.lastReadId) ?? undefined;
+    if (data?.user?.[id]?.lastReadId && data?.manga?.chapters?.length) {
+      const _chapterLastRead = data?.manga?.chapters?.find((chap: IChapter) => chap.id === user[id].lastReadId) ?? undefined;
       if (_chapterLastRead) {
-        const daysDiff = Math.round((userManga.lastReadDate - Date.now()) / (1000 * 3600 * 24));
+        const daysDiff = Math.round((data?.user[id].lastReadDate - Date.now()) / (1000 * 3600 * 24));
         const otherInfo = daysDiff > 1 ? `Last read ${daysDiff} days ago` : 'Last read today';
         setChapterLastRead({ chapter: { ..._chapterLastRead }, otherInfo })
       }
@@ -34,14 +29,16 @@ export default function Chapters({ chapters, publishDay, userManga, pricing }: I
     return () => {
       setChapterLastRead(undefined);
     }
-  }, [chapters, userManga])
+  }, [data])
 
-  console.log('chapterLastRead', chapterLastRead);
-
+  if (!data) return null;
+  
+  const { manga: { id, chapters, publishDay, pricing }, user } = data;
+  
   return <Card className="block block__chapters">
     {!!chapterLastRead && (
       <>
-        <div className="mv-24">
+        <div className="mh-24">
           <Text className="block__title">Last read</Text>
         </div>
         <Card className="block block--no-margin">
@@ -49,7 +46,7 @@ export default function Chapters({ chapters, publishDay, userManga, pricing }: I
         </Card>
       </>)}
 
-    <div className="mv-24 flex justify-between items-center pv2">
+    <div className="mh-24 flex justify-between items-center pv2">
       <div>
         <Text className="block__title margin-left-24">{chapters?.length || 0} chapters </Text>
         <br />

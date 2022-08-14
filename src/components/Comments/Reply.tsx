@@ -1,11 +1,5 @@
-import { Image, Typography, Card, Input } from "antd";
-import {
-  LikeOutlined,
-  MessageOutlined,
-} from '@ant-design/icons';
-import IconText from '@components/Common/IconText'
-
-const { Text } = Typography;
+import { Image, Input, Button } from "antd";
+import { SendOutlined } from "@ant-design/icons";
 
 export default function Comment() {
   return <div className="flex mt-12">
@@ -17,6 +11,8 @@ export default function Comment() {
     />
     <div className="ml3">
       <Input className="input--transparent" placeholder="Add your comment" />
+
+      <Button className="btn__primary--override fs-sm mt-24"><SendOutlined className="color-black" /> Add Comment</Button>
     </div>
   </div>
 }

@@ -16,6 +16,9 @@
           border-color: #d9ad00;
           background: #d9ad00;
         }
+        svg {
+          fill: black
+        }
       }
     }
     &__secondary {
@@ -26,8 +29,15 @@
         font-weight: 600;
         font-size: 16px;
         padding: 8px 16px;
+        overflow: hidden;
         &:hover {
           background: rgba(255, 255, 255, 0.50)
+        }
+        &.btn__discount {
+          padding: 0;
+          .bg-purple {
+            padding: 4px 8px;
+          }
         }
       }
     }
@@ -53,6 +63,27 @@
 .ant-tag {
   &.tag--override {
     border-color: $border-tag;
+  }
+}
+
+.ant-collapse {
+  background-color: transparent;
+  border: none;
+  .ant-collapse-header,
+  .ant-collapse-content-box {
+    padding: 0 !important;
+  }
+  .ant-collapse-item,
+  .ant-collapse-content {
+    border: none !important;
+    background-color: transparent;
+  }
+  .ant-collapse-item {
+    &-active {
+      .ant-collapse-header {
+        display: none !important;
+      }
+    }
   }
 }
 

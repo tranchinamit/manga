@@ -1,5 +1,4 @@
-import { IIntro } from "@mocks/data";
-import { Button, Col, Image, Row, Tag, Typography, Card } from "antd";
+import { Button, Image, Tag, Typography, Card } from "antd";
 import {
   ReadOutlined,
   LikeOutlined,
@@ -7,23 +6,31 @@ import {
   MoreOutlined,
 } from '@ant-design/icons';
 import IconText from "@components/Common/IconText";
+import { useData } from "pages";
 
 const { Title, Text } = Typography;
 
-export default function ({ thumb, title, author, category, totalChaps = 0, views = 0, like = 0, hashTags = [] }: IIntro) {
+export default function () {
+
+  const data = useData();
+
+  if (!data) return null;
+
+  const { manga: { intro: { thumb, title, author, category, totalChaps = 0, views = 0, like = 0, hashTags = [] } } } = data;
+
   return <Card className="block">
     <div className="flex relative">
 
       <div className="mr2">
         <Image
           width={180}
-          src="images/thumb/kasane.png"
+          src={thumb}
           preview={false}
         />
       </div>
       <div className="flex flex-col justify-between ph2 mh2 relative">
         <div>
-          <Title level={2} className="o-85 mv1 white-color">{title ?? ""}</Title>
+          <Title level={2} className="o-85 mv1 color-white">{title ?? ""}</Title>
           <div className="mv2">
             <Text className="o-65">By{" "}{author}</Text>
           </div>

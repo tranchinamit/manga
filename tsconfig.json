@@ -4,7 +4,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@mocks/*": ["src/mocks/*"],
-      "@images/*": ["src/public/images/*"],
+      "@utils/*": ["src/utils/*"],
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

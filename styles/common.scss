@@ -46,7 +46,7 @@
 
 // display
 .flex {
-  display: flex
+  display: flex !important;
 }
 
 .flex-col {
@@ -81,8 +81,8 @@
 }
 
 .mv3 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mh1 {
@@ -157,14 +157,24 @@
   margin-top: 24px;
 }
 
-.mv-12 {
+.mh-12 {
   margin-left: 12px;
   margin-right: 12px;
 }
 
-.mv-24 {
+.mh-24 {
   margin-left: 24px;
   margin-right: 24px;
+}
+
+.mv-12 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.mv-24 {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 // opacity
@@ -195,10 +205,6 @@
 
 .line-through {
   text-decoration: line-through;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .text-center {

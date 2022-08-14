@@ -85,6 +85,12 @@ body {
       padding: 12px;
     }
   }
+  &--no-spacing {
+    margin: 0;
+    .ant-card-body {
+      padding: 0;
+    }
+  }
 }
 
 //
@@ -93,6 +99,7 @@ body {
     background-color: transparent;
     border-color: #434343;
     border-radius: 8px;
+    width: 80%;
     &::placeholder {
       color: rgba(255, 255, 255, 0.3)
     }
@@ -110,6 +117,10 @@ body {
 
 .color-purple {
   color: $color-purple !important;
+}
+
+.bg-purple {
+  background-color: $color-purple !important;
 }
 
 .color-darkgray {

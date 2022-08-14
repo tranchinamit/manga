@@ -1,34 +1,61 @@
 
 export interface IIntro {
-  thumb?: string,
-  title?: string,
-  author?: string,
-  category?: string,
-  totalChaps?: number,
-  views?: number,
-  like?: number,
-  hashTags?: string[],
+  thumb: string,
+  title: string,
+  author: string,
+  category: string,
+  totalChaps: number,
+  views: number,
+  like: number,
+  hashTags: string[],
 }
 
 export interface IPricing {
-  freeChaps?: number,
-  lockedChaps?: number,
-  pricePerChap?: number,
-  discount?: number,
+  freeChaps: number,
+  lockedChaps: number,
+  pricePerChap: number,
+  discount: number,
 }
 
 export interface IChapter {
-  id?: number,
-  thumb?: string,
-  chapNum?: number,
+  id: number,
+  thumb: string,
+  chapNum: number,
+}
+
+export interface ICredit {
+   avatar: string, 
+   author: string,
+   role: string
 }
 
 export interface IAbout {
-  genres?: string[],
-  summary?: string,
-  thumbs?: string[],
-  credits?: { avatar: string, author: string, role: string }[],
-  facts?: { title: string, info: string }[]
+  genres: string[],
+  summary: string,
+  thumbs: string[],
+  credits: ICredit[],
+  facts: { title: string, info: string }[]
+}
+
+export interface IRelated {
+  id: number,
+  thumb: string,
+  title: string,
+  type: string,
+  type2: string,
+  views: number,
+}
+
+
+export interface IComment {
+  id: number,
+  avatar: string,
+  name: string,
+  commentChap: number,
+  datetime: number,
+  comment: string,
+  like: number,
+  threads: number,
 }
 
 export interface IUserManga {
@@ -39,11 +66,14 @@ export interface IUserData {
   [mangaId: string]: IUserManga;
 }
 export interface IManga {
+  id: string,
   intro: IIntro,
   pricing: IPricing,
   publishDay: string,
   chapters: IChapter[],
   about: IAbout,
+  related: IRelated[],
+  comments: IComment[]
 }
 
 export const USER_MOCK_DATA: IUserData = {
@@ -57,10 +87,15 @@ export const USER_MOCK_DATA: IUserData = {
   },
 };
 
-export const MANGA_MOCK_DATA = {
+interface IMockManga {
+  [mangaId: string]: IManga;
+}
+
+export const MANGA_MOCK_DATA: IMockManga = {
   kasane: {
+    id: 'kasane',
     intro: {
-      thumb: 'images/thumb/kasane1.png',
+      thumb: 'images/thumb/kasane.png',
       title: 'Kasane',
       author: 'Kodansha',
       category: 'Drama',
@@ -99,7 +134,7 @@ export const MANGA_MOCK_DATA = {
         'images/thumb/kasane4.png',
       ],
       credits: [
-        { avatar: 'images/avatar/kodansha.png', author: 'Kodansha', role: 'publisher' },
+        { avatar: 'images/avatar/kodansha.png', author: 'Kodansha', role: 'Publisher' },
         { avatar: 'images/avatar/johnnie.png', author: 'Johnnie Christmas', role: 'Story' },
         { avatar: 'images/avatar/default.png', author: 'Jack T.Cole', role: 'Art' },
       ],
@@ -118,8 +153,18 @@ export const MANGA_MOCK_DATA = {
       { id: 2, thumb: 'images/thumb/related.png', title: 'Title Name 2', type: 'EXCLUSIVE', type2: 'PREQUEL', views: 45645 },
       { id: 3, thumb: 'images/thumb/related.png', title: 'Title Name 3', type: 'EXCLUSIVE', type2: 'PREQUEL', views: 45645 },
     ],
-    comments: {
-
-    }
+    comments: [
+      {
+        id: 1,
+        avatar: 'images/avatar/user1.png',
+        name: 'Han Solo',
+        commentChap: 35,
+        // datetime: 1660465789925,
+        datetime: 1660468974849,
+        comment: `I had no idea such a sequel was coming as I thought the show had ended and Kyoto Animation took a hard hit from the tragedy but currently 4 episodes in as of writing this review, and I love every second of it.`,
+        like: 61,
+        threads: 12,
+      }
+    ]
   }
 }
