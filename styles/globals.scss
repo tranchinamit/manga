@@ -21,6 +21,13 @@ body {
   color: white;
 }
 
+.wrap-spin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // Layouts
 .main-content {
   display: block;
@@ -96,6 +103,7 @@ body {
 //
 .input {
   &--transparent {
+    color: white;
     background-color: transparent;
     border-color: #434343;
     border-radius: 8px;
