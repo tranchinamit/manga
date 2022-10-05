@@ -1,5 +1,4 @@
 A Quick Project about UI (Nam Tran)
-testing 
 
 ## How to run on dev mode
 
