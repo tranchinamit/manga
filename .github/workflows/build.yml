@@ -1,9 +1,15 @@
 name: Build and Deploy
 
 on:
-  push:
+  pull_request:
     branches:
+      # - 'dev*'
+      # - 'releases/v*'
       - master
+
+  # push:
+  #   branches:
+  #     - master
 
 jobs:
   build:
@@ -16,7 +22,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          # node-version: 18
+          node-version: 'v18.18.2'
+
+      # - name: Install Yarn
+      #   run: npm install -g yarn
+
+      # - name: Install and Test
+      #   run: |
+      #     yarn install --frozen-lockfile
+      #     yarn lint:check
+      #     yarn lint:format:check
+      #     yarn test
 
       - name: Install Dependencies
         run: npm install
@@ -31,11 +48,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Log ACCESS_TOKEN
-        run: echo "${{ secrets.ACCESS_TOKEN }}"
+      - name: Debug Statements
+        run: |
+          echo "Checking if deploy key or token is available..."
+          echo "Deploy key: $secrets.ACCESS_TOKEN"
+          echo "Deploy key: $DEPLOY_KEY"
+          # Add more debug statements as needed
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: tranchinamit/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          deploy_key: ${{ DEPLOY_KEY }}
           publish_dir: ./out
+        env:
+          DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
