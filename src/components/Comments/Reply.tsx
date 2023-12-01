@@ -13,7 +13,7 @@ export default function Comment() {
     <div className="ml3">
       <Input className="input--transparent" placeholder="Add your comment" />
 
-      <Button className="btn__primary--override fs-sm mt-24"><SendOutlined className="color-black" /> Add Comment</Button>
+      <Button className="btn__primary--override fs-sm mt-24"><SendOutlined rev={undefined} className="color-black" /> Add Comment</Button>
     </div>
   </div>
 }

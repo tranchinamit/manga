@@ -7,15 +7,21 @@ import Comments from '@components/Comments';
 import Intro from '@components/Intro';
 import Pricing from '@components/Pricing';
 import Related from '@components/Related';
-import { IUserData, IManga, MANGA_MOCK_DATA, USER_MOCK_DATA } from '@mocks/data';
+import {
+  IUserData,
+  IManga,
+  MANGA_MOCK_DATA,
+  USER_MOCK_DATA,
+} from '@mocks/data';
 import { Spin } from 'antd';
 
-const DataContext = createContext<{ manga: IManga, user: IUserData } | undefined>(undefined);
-export const useData = (): { manga: IManga, user: IUserData } | undefined => useContext(DataContext);
+const DataContext = createContext<
+  { manga: IManga; user: IUserData } | undefined
+>(undefined);
+export const useData = (): { manga: IManga; user: IUserData } | undefined =>
+  useContext(DataContext);
 
-
-const mangaId = "kasane";
-
+const mangaId = 'kasane';
 
 export default function Home() {
   const [user, setUser] = useState<IUserData | undefined>(undefined);
@@ -32,9 +38,9 @@ export default function Home() {
 
     return () => {
       clearTimeout(timer);
-      setUser(undefined)
-      setManga(undefined)
-      setFetch(false)
+      setUser(undefined);
+      setManga(undefined);
+      setFetch(false);
     };
   }, []);
 
@@ -49,16 +55,20 @@ export default function Home() {
 
         {isFetch ? (
           <Layouts
-            leftContent={<>
-              <Intro />
-              <Pricing />
-              <Chapters />
-            </>}
-            rightContent={<>
-              <About />
-              <Related />
-              <Comments />
-            </>}
+            leftContent={
+              <>
+                <Intro />
+                <Pricing />
+                <Chapters />
+              </>
+            }
+            rightContent={
+              <>
+                <About />
+                <Related />
+                <Comments />
+              </>
+            }
           />
         ) : (
           <div className="wrap-spin">
