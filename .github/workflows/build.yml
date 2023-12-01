@@ -49,19 +49,13 @@ jobs:
     needs: build
     steps:
       - name: Debug Statements
-        env:
-          DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
+        # env:
+        #   DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
         run: |
           echo "Checking if deploy key or token is available..."
-          echo "Deploy key: $DEPLOY_KEY"
-          echo "Deploy key: ${{ secrets.key_CICD_1 }}"
-          echo "Deploy key: ${{ secrets }}"
-
-      - name: Add SSH Key
-        env:
-          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-        run: |
-          echo "Deploy key: $SSH_DEPLOY_KEY"
+          # echo "Private Key: $DEPLOY_KEY"
+          echo "Private key: ${{ secrets.ACCESS_TOKEN }}"
+          echo "Deploy key: ${{ secrets.ACTIONS_DEPLOY_KEY  }}"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
