@@ -7,9 +7,9 @@ on:
       # - 'releases/v*'
       - master
 
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -49,14 +49,18 @@ jobs:
     needs: build
     steps:
       - name: Debug Statements
+        # env:
+        #   DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
         run: |
           echo "Checking if deploy key or token is available..."
-          echo "Deploy key: $secrets.ACCESS_TOKEN"
+          # echo "Private Key: $DEPLOY_KEY"
+          echo "Private key: ${{ secrets.ACCESS_TOKEN }}"
+          echo "Deploy key: ${{ secrets.ACTIONS_DEPLOY_KEY  }}"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
           publish_dir: ./out
-        # env:
-        #   DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
+       
