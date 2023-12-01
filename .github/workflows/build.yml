@@ -52,13 +52,11 @@ jobs:
         run: |
           echo "Checking if deploy key or token is available..."
           echo "Deploy key: $secrets.ACCESS_TOKEN"
-          echo "Deploy key: $DEPLOY_KEY"
-          # Add more debug statements as needed
 
       - name: Deploy to GitHub Pages
         uses: tranchinamit/actions-gh-pages@v3
         with:
-          deploy_key: ${{ DEPLOY_KEY }}
+          deploy_key: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./out
-        env:
-          DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
+        # env:
+        #   DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
