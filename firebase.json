@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "out",
+    "site": "hosting-namtran",
     "ignore": [
       "firebase.json",
       "**/.*",
