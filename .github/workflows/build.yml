@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy 
 
 on:
   pull_request:
@@ -63,4 +63,3 @@ jobs:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
           github_token: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
           publish_dir: ./out
-       
