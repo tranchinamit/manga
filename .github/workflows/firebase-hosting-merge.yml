@@ -16,5 +16,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HOSTING_190913 }}'
-          channelId: live
+          # channelId: live
+          channelId: hosting-namtran
           projectId: hosting-190913
