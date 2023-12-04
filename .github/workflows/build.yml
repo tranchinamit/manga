@@ -56,10 +56,12 @@ jobs:
           # echo "Private Key: $DEPLOY_KEY"
           echo "Private key: ${{ secrets.ACCESS_TOKEN }}"
           echo "Deploy key: ${{ secrets.ACTIONS_DEPLOY_KEY  }}"
+          echo "Deploy key: ${{ secrets.PERSONAL_TOKEN  }}"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           github_token: ${{ secrets.ACCESS_TOKEN  }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN  }}
           publish_dir: ./out
