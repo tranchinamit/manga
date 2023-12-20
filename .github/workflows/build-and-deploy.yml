@@ -24,13 +24,12 @@ jobs:
       # https://github.com/actions/setup-node
       - uses: actions/setup-node@v3
         with:
-          # update the Node version to meet your needs
           node-version: 18
-          cache: npm
+          # cache: npm
 
-      - name: Build
+      - name: Install, Build & Export
         run: |
-          npm i
+          npm install
           npm run build
           npm run export
           touch out/.nojekyll
