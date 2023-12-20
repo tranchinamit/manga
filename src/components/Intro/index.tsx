@@ -71,7 +71,7 @@ export default function Intro() {
             </div>
           </div>
           <div>
-            <Button className="btn__primary--override fs-sm">
+            <Button className="btn__primary--override fs-sm whitespace-normal h-auto">
               Read First Chapter for FREE
             </Button>
           </div>

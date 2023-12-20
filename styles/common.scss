@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -209,4 +213,8 @@
 
 .text-center {
   text-align: center;
+}
+
+.whitespace-normal {
+  white-space: normal;
 }
