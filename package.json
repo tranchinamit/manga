@@ -8,17 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "lint",
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "antd": "^5.12.4",
     "next": "14.0.4",
@@ -34,7 +23,6 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
     "prettier": "^3.1.1",
