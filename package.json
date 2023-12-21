@@ -10,13 +10,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --quiet --ignore-pattern",
+      "lint",
       "prettier --write"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
