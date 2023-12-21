@@ -31,9 +31,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Export to static files
-        run: npm run export
-
       - name: NoJekyll
         run: touch out/.nojekyll
 
