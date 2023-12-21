@@ -1,8 +1,10 @@
 import { useContext } from "react";
+
 import { Typography, Card } from "antd";
 
-import Item from "./Item";
 import { DataContext } from "@/context/DataProvider";
+
+import Item from "./Item";
 
 const { Text } = Typography;
 
@@ -23,9 +25,7 @@ export default function Related() {
         <Text className="block__title mh-24">Related Titles</Text>
       </div>
 
-      {related?.map((item) => (
-        <Item key={item.id} {...item} />
-      ))}
+      {related?.map((item) => <Item key={item.id} {...item} />)}
     </Card>
   );
 }
