@@ -1,13 +1,14 @@
+import { useContext } from "react";
 import { Button, Col, Image, Row, Typography, Divider, Card } from "antd";
-import { useData } from "@/app/page";
+import { DataContext } from "@/app/page";
 
 const { Text } = Typography;
 
 export default function Pricing() {
 
-  const data = useData();
+  const data = useContext(DataContext);
 
-  if (!data) return null;
+  if (!data) {return null;}
 
   const { manga: { pricing: { freeChaps = 0, lockedChaps = 0, pricePerChap = 0, discount = 0 } } } = data;
 

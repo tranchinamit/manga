@@ -1,5 +1,5 @@
-"use client"
-import { useState, useEffect, createContext, useContext } from "react";
+"use client";
+import { useState, useEffect, createContext } from "react";
 import Head from "next/head";
 import CustomLayout from "@/app/custom-layout";
 import About from "@/components/About";
@@ -16,11 +16,9 @@ import {
 } from "@/mocks/data";
 import { Spin } from "antd";
 
-const DataContext = createContext<
+export const DataContext = createContext<
   { manga: IManga; user: IUserData } | undefined
 >(undefined);
-export const useData = (): { manga: IManga; user: IUserData } | undefined =>
-  useContext(DataContext);
 
 const mangaId = "kasane";
 

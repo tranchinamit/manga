@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Button, Image, Tag, Typography, Card } from 'antd';
 import {
   ReadOutlined,
@@ -6,12 +7,12 @@ import {
   MoreOutlined,
 } from '@ant-design/icons';
 import IconText from '@/components/Common/IconText';
-import { useData } from '@/app/page';
+import { DataContext } from '@/app/page';
 
 const { Title, Text } = Typography;
 
 export default function Intro() {
-  const data = useData();
+  const data = useContext(DataContext);
 
   if (!data) {
     return null;

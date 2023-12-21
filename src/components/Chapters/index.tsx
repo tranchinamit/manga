@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
-import { IChapter } from "@/mocks/data";
+import { useState, useEffect, useContext } from "react";
 import { Button, Typography, Card } from "antd";
-import Chapter from "./Chapter";
 import { BellOutlined, SortAscendingOutlined } from "@ant-design/icons";
-import { useData } from "@/app/page";
+
+import { IChapter } from "@/mocks/data";
+import { DataContext } from "@/app/page";
+
+import Chapter from "./Chapter";
 
 const { Text } = Typography;
 
@@ -17,7 +19,7 @@ export default function Chapters() {
     ILastChapter | undefined
   >(undefined);
 
-  const data = useData();
+  const data = useContext(DataContext);
 
   useEffect(() => {
     if (

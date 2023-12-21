@@ -1,16 +1,20 @@
-import { useState } from "react";
-import { ICredit } from "@/mocks/data";
+import { useContext, useState } from "react";
+
 import { Button, Col, Image, Row, Tag, Typography, Card, Collapse } from "antd";
-import { useData } from "@/app/page";
+
+import { ICredit } from "@/mocks/data";
+import { DataContext } from "@/app/page";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
 
 export default function About() {
-  const data = useData();
+  const data = useContext(DataContext);
   const [isExpand, setIsExpand] = useState<boolean>(false);
 
-  if (!data){ return null;}
+  if (!data) {
+    return null;
+  }
 
   const {
     manga: {
