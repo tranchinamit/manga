@@ -1,5 +1,5 @@
 import { Button, Col, Image, Row, Typography, Divider, Card } from "antd";
-import { useData } from "pages";
+import { useData } from "@/app/page";
 
 const { Text } = Typography;
 

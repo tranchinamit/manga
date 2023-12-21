@@ -1,6 +1,6 @@
 import { Typography, Card } from "antd";
 import Item from './Item';
-import { useData } from "pages";
+import { useData } from "@/app/page";
 
 const { Text } = Typography;
 

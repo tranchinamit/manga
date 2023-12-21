@@ -1,5 +1,5 @@
 import { Col, Row } from 'antd';
-import GetApp from '@components/GetApp';
+import GetApp from '@/components/GetApp';
 import { ReactNode } from 'react';
 
 interface IProps {

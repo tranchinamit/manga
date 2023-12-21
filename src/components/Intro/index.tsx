@@ -5,8 +5,8 @@ import {
   ShareAltOutlined,
   MoreOutlined,
 } from '@ant-design/icons';
-import IconText from '@components/Common/IconText';
-import { useData } from 'pages';
+import IconText from '@/components/Common/IconText';
+import { useData } from '@/app/page';
 
 const { Title, Text } = Typography;
 

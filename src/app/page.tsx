@@ -1,19 +1,20 @@
-import { useState, useEffect, createContext, useContext } from 'react';
-import Head from 'next/head';
-import Layouts from '../src/layouts';
-import About from '@components/About';
-import Chapters from '@components/Chapters';
-import Comments from '@components/Comments';
-import Intro from '@components/Intro';
-import Pricing from '@components/Pricing';
-import Related from '@components/Related';
+"use client"
+import { useState, useEffect, createContext, useContext } from "react";
+import Head from "next/head";
+import CustomLayout from "@/app/custom-layout";
+import About from "@/components/About";
+import Chapters from "@/components/Chapters";
+import Comments from "@/components/Comments";
+import Intro from "@/components/Intro";
+import Pricing from "@/components/Pricing";
+import Related from "@/components/Related";
 import {
   IUserData,
   IManga,
   MANGA_MOCK_DATA,
   USER_MOCK_DATA,
-} from '@mocks/data';
-import { Spin } from 'antd';
+} from "@/mocks/data";
+import { Spin } from "antd";
 
 const DataContext = createContext<
   { manga: IManga; user: IUserData } | undefined
@@ -21,26 +22,26 @@ const DataContext = createContext<
 export const useData = (): { manga: IManga; user: IUserData } | undefined =>
   useContext(DataContext);
 
-const mangaId = 'kasane';
+const mangaId = "kasane";
 
 export default function Home() {
   const [user, setUser] = useState<IUserData | undefined>(undefined);
   const [manga, setManga] = useState<IManga | undefined>(undefined);
 
-  const [isFetch, setFetch] = useState<boolean>(false);
+  const [isFetch, setIsFetch] = useState<boolean>(false);
 
   useEffect(() => {
-    let timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setUser(USER_MOCK_DATA ?? undefined);
       setManga(MANGA_MOCK_DATA?.[mangaId] ?? undefined);
-      setFetch(true);
+      setIsFetch(true);
     }, 250);
 
     return () => {
       clearTimeout(timer);
       setUser(undefined);
       setManga(undefined);
-      setFetch(false);
+      setIsFetch(false);
     };
   }, []);
 
@@ -54,7 +55,7 @@ export default function Home() {
         </Head>
 
         {isFetch ? (
-          <Layouts
+          <CustomLayout
             leftContent={
               <>
                 <Intro />

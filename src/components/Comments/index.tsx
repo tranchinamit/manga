@@ -1,5 +1,5 @@
 import { Typography, Card } from "antd";
-import { useData } from "pages";
+import { useData } from "@/app/page";
 import Comment from './Comment';
 import Reply from './Reply';
 
