@@ -3,9 +3,9 @@ import { Button, Typography, Card } from "antd";
 import { BellOutlined, SortAscendingOutlined } from "@ant-design/icons";
 
 import { IChapter } from "@/mocks/data";
-import { DataContext } from "@/app/page";
 
 import Chapter from "./Chapter";
+import { DataContext } from "@/context/DataProvider";
 
 const { Text } = Typography;
 

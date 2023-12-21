@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { Button, Col, Image, Row, Tag, Typography, Card, Collapse } from "antd";
 
 import { ICredit } from "@/mocks/data";
-import { DataContext } from "@/app/page";
+import { DataContext } from "@/context/DataProvider";
 
 const { Text } = Typography;
 const { Panel } = Collapse;

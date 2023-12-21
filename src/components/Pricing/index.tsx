@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Button, Col, Image, Row, Typography, Divider, Card } from "antd";
-import { DataContext } from "@/app/page";
+import { DataContext } from "@/context/DataProvider";
 
 const { Text } = Typography;
 

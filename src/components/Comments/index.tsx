@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Typography, Card } from "antd";
 
-import { DataContext } from "@/app/page";
 import Comment from "./Comment";
 import Reply from "./Reply";
+import { DataContext } from "@/context/DataProvider";
 
 const { Text } = Typography;
 
