@@ -1,5 +1,6 @@
 import { Image, Typography } from "antd";
 import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
+
 import IconText from "@/components/Common/IconText";
 import { IComment } from "@/mocks/data";
 import { handleCommentTime, kFormatter } from "@/utils/helpers";

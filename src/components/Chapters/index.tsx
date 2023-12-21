@@ -24,7 +24,7 @@ export default function Chapters() {
   useEffect(() => {
     if (
       data?.manga?.id &&
-      data?.user?.[data?.manga?.id]?.lastReadId &&
+      data?.user?.[data.manga.id]?.lastReadId &&
       data?.manga?.chapters?.length
     ) {
       const _chapterLastRead =
