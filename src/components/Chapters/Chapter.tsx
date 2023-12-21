@@ -1,5 +1,5 @@
-import { IChapter } from '@mocks/data';
-import { Col, Image, Row, Typography, Card } from 'antd';
+import { Col, Image, Row, Typography, Card } from "antd";
+import { IChapter } from "@/mocks/data";
 
 const { Text } = Typography;
 
@@ -21,8 +21,8 @@ export default function Chapters({
   return (
     <Card
       className={`block block__chapter${
-        !!otherInfo ? ' block__chapter--last-read' : ''
-      }${isActive ? ' block__chapter--active' : ''}`}
+        otherInfo ? " block__chapter--last-read" : ""
+      }${isActive ? " block__chapter--active" : ""}`}
     >
       <Row>
         <Col xs={24}>

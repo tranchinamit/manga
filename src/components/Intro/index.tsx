@@ -1,17 +1,18 @@
-import { Button, Image, Tag, Typography, Card } from 'antd';
+import { useContext } from "react";
+import { Button, Image, Tag, Typography, Card } from "antd";
 import {
   ReadOutlined,
   LikeOutlined,
   ShareAltOutlined,
   MoreOutlined,
-} from '@ant-design/icons';
-import IconText from '@components/Common/IconText';
-import { useData } from 'pages';
+} from "@ant-design/icons";
+import IconText from "@/components/Common/IconText";
+import { DataContext } from "@/context/DataProvider";
 
 const { Title, Text } = Typography;
 
 export default function Intro() {
-  const data = useData();
+  const data = useContext(DataContext);
 
   if (!data) {
     return null;
@@ -41,15 +42,15 @@ export default function Intro() {
         <div className="flex flex-col justify-between ph2 mh2 relative">
           <div>
             <Title level={2} className="o-85 mv1 color-white">
-              {title ?? ''}
+              {title ?? ""}
             </Title>
             <div className="mv2">
               <Text className="o-65">By {author}</Text>
             </div>
             <div className="mv2">
               <Text className="o-65">
-                {category} • {totalChaps}{' '}
-                {totalChaps > 1 ? 'chapters' : 'chapter'}
+                {category} • {totalChaps}{" "}
+                {totalChaps > 1 ? "chapters" : "chapter"}
               </Text>
             </div>
             <div className="flex mv2">

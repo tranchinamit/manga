@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
-import { IChapter } from '@mocks/data';
-import { Button, Typography, Card } from 'antd';
-import Chapter from './Chapter';
-import { BellOutlined, SortAscendingOutlined } from '@ant-design/icons';
-import { useData } from 'pages';
+import { useState, useEffect, useContext } from "react";
+import { Button, Typography, Card } from "antd";
+import { BellOutlined, SortAscendingOutlined } from "@ant-design/icons";
+
+import { IChapter } from "@/mocks/data";
+
+import Chapter from "./Chapter";
+import { DataContext } from "@/context/DataProvider";
 
 const { Text } = Typography;
 
@@ -17,25 +19,25 @@ export default function Chapters() {
     ILastChapter | undefined
   >(undefined);
 
-  const data = useData();
+  const data = useContext(DataContext);
 
   useEffect(() => {
     if (
       data?.manga?.id &&
-      data?.user?.[data?.manga?.id]?.lastReadId &&
+      data?.user?.[data.manga.id]?.lastReadId &&
       data?.manga?.chapters?.length
     ) {
       const _chapterLastRead =
         data?.manga?.chapters?.find(
-          (chap: IChapter) => chap.id === data.user[data?.manga?.id].lastReadId,
+          (chap: IChapter) => chap.id === data.user[data?.manga?.id].lastReadId
         ) ?? undefined;
       if (_chapterLastRead) {
         const daysDiff = Math.round(
           (data?.user[data?.manga?.id].lastReadDate - Date.now()) /
-            (1000 * 3600 * 24),
+            (1000 * 3600 * 24)
         );
         const otherInfo =
-          daysDiff > 1 ? `Last read ${daysDiff} days ago` : 'Last read today';
+          daysDiff > 1 ? `Last read ${daysDiff} days ago` : "Last read today";
         setChapterLastRead({ chapter: { ..._chapterLastRead }, otherInfo });
       }
     }
@@ -69,7 +71,7 @@ export default function Chapters() {
       <div className="mh-24 flex justify-between items-center pv2">
         <div>
           <Text className="block__title margin-left-24">
-            {chapters?.length || 0} chapters{' '}
+            {chapters?.length || 0} chapters{" "}
           </Text>
           <br />
           {!!publishDay && (
