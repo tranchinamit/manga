@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { Button, Image, Tag, Typography, Card } from "antd";
+
 import {
   ReadOutlined,
   LikeOutlined,
   ShareAltOutlined,
   MoreOutlined,
 } from "@ant-design/icons";
+import { Button, Image, Tag, Typography, Card } from "antd";
+
 import IconText from "@/components/Common/IconText";
+
 import { DataContext } from "@/context/DataProvider";
 
 const { Title, Text } = Typography;
@@ -49,8 +52,7 @@ export default function Intro() {
             </div>
             <div className="mv2">
               <Text className="o-65">
-                {category} • {totalChaps}{" "}
-                {totalChaps > 1 ? "chapters" : "chapter"}
+                {category} • {totalChaps} {totalChaps > 1 ? "chapters" : "chapter"}
               </Text>
             </div>
             <div className="flex mv2">
