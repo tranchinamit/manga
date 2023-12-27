@@ -1,8 +1,14 @@
-import { Image, Typography, Card } from "antd";
+import { Image, Typography, Card, Button } from "antd";
 
 const { Text } = Typography;
 
+const githubUrl  ="https://github.com/tranchinamit";
+
 export default function GetApp() {
+  const handleOpenNewTab = () => {
+    window.open(githubUrl, "_blank");
+  }
+
   return (
     <Card className="block">
       <div className="flex justify-between items-center">
@@ -14,6 +20,8 @@ export default function GetApp() {
               devices.
             </Text>
           </div>
+          <a href={githubUrl} target="_blank">Visit my Github!</a>
+          <Button onClick={handleOpenNewTab} type="text" danger>Visit my Github!</Button>
         </div>
         <div>
           <Image width={116} src="images/icon/qr.png" preview={false} alt="qr" />
